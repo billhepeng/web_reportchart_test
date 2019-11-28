@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!--自己定义报表  echart="True" 设置为True 显示 echart 报表，否则显示默认Nvd3报表，type为默认需要显示的报表类型-->
+    <record id="helpdesk_ticket_view_graph_analysis_test" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.graph.analysis.test_1</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <graph string="Helpdesk Ticket Analysis" stacked="True" echart="True"  type='echart1'>
+                <field name="team_id" type="row"/>
+                <field name="stage_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+
+    <record id="helpdesk_ticket_analysis_action_test" model="ir.actions.act_window">
+        <field name="name">Helpdesk Ticket Analysis</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">pivot,graph</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                      (0, 0, {'view_mode': 'graph', 'view_id': ref('helpdesk_ticket_view_graph_analysis_test')}),
+                      (0, 0, {'view_mode': 'pivot', 'view_id': ref('helpdesk_ticket_view_graph_analysis_test')})]"/>
+    </record>
+
+    <menuitem id="helpdesk_reporttest" name="报表测试" action="helpdesk_ticket_analysis_action_test"
+              sequence="20" parent="helpdesk.helpdesk_ticket_report_menu_main"
+              groups="helpdesk.group_helpdesk_manager"/>
+
+
+</odoo>

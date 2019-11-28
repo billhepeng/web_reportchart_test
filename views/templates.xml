@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--增加自己定义报表图像-->
+        <template id="assets_backend" name="graph_view_test" inherit_id="web.assets_backend"  priority="1000">
+             <xpath expr="//script[@src='/web_reportchart/static/src/js/graph_controller1.8.6.js']" position="after">
+                <link href="/web_reportchart_test/static/src/css/web_reportchart.css" rel="stylesheet" type="text/css"/>
+                <script type="text/javascript" src="/web_reportchart_test/static/src/js/graph_rendererttest.js"></script>
+            </xpath>
+        </template>
+
+
+    </data>
+</odoo>
