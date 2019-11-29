@@ -6,10 +6,9 @@
            <t t-jquery="div.btn-group:last" t-operation="after">
                <t t-if="type === 'echart1'">
                    <button class="btn btn-secondary fa fa-echart1-chart o_graph_button" title="echart test" aria-label="echart test" data-mode="echart1"/>
+                   <button class="btn btn-secondary fa fa-echart2-chart o_graph_button" title="echart test" aria-label="echart test" data-mode="echart2"/>
+                   <button class="btn btn-secondary fa fa-echart3-chart o_graph_button" title="echart test" aria-label="echart test" data-mode="echart3"/>
                </t>
-
-                   <button class="btn btn-secondary fa fa-echart2-chart o_graph_button" title="echart test" aria-label="echart test"  data-mode="echart2"/>
-
             </t>
         </t>
 </templates>
